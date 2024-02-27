@@ -46,7 +46,7 @@ DevNews is a minimalist website designed to act as a straightforward forum where
 
 Before you begin, you will need to have the following tools installed on your machine: [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/). 
 
-#### 🧭 Running Application - Frontend
+#### 🧭 Running Application - FrontEnd
 
 ```bash
 
@@ -66,7 +66,7 @@ $ npm run dev
 
 ```
 
-#### 🧭 Running Application - Backend
+#### 🧭 Running Application - BackEnd
 
 ```bash
 
