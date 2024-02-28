@@ -16,6 +16,7 @@
   "author": "Victor Vasconcelos",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.11.21",
     "tsup": "^8.0.2",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
