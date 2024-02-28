@@ -7,7 +7,14 @@
     "start": "node index.js",
     "dev": "node --watch --no-warnings index.js"
   },
-  "keywords": ["Programming", "Forum", "NodeJs"],
+  "keywords": [
+    "Programming",
+    "Forum",
+    "NodeJs"
+  ],
   "author": "Victor Vasconcelos",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
 }
