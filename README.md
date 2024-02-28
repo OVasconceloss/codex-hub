@@ -92,6 +92,7 @@ $ npm run dev
 
 #### **Website**  ([React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)  +  [Tailwind CSS](https://tailwindcss.com/docs/installation))
 
+-   **[MongoDB](https://www.mongodb.com/)**
 -   **[Axios](https://github.com/axios/axios)**
 -   **[Dotenv](https://www.npmjs.com/package/dotenv)**
 -   **[FontAwesome](https://fontawesome.com/v5/docs/web/use-with/react)**
