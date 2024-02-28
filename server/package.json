@@ -4,7 +4,8 @@
   "description": "A forum dedicated to programming, focused on learning and discussing various topics related to the area.",
   "main": "index.js",
   "scripts": {
-    "start": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "start:dev": "tsx watch src/index.ts"
   },
   "keywords": [
     "Programming",
