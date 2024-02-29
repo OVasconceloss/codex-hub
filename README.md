@@ -92,9 +92,10 @@ $ npm run dev
 
 #### **Website**  ([React](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)  +  [Tailwind CSS](https://tailwindcss.com/docs/installation))
 
--   **[MongoDB](https://www.mongodb.com/)**
 -   **[Axios](https://github.com/axios/axios)**
+-   **[Prisma](https://www.prisma.io/)**
 -   **[Dotenv](https://www.npmjs.com/package/dotenv)**
+-   **[MongoDB](https://www.mongodb.com/)**
 -   **[FontAwesome](https://fontawesome.com/v5/docs/web/use-with/react)**
 -   **[React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
 
