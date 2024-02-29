@@ -1,11 +1,18 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { CreateUserService } from "../services/CreateUserService";
 
+interface UserProps {
+    name: string,
+    email: string
+};
+
 class CreateUserController {
     async handleCreateUser(request: FastifyRequest, response: FastifyReply) {
-        const userService = new CreateUserService();
+        const { name, email } = request.body as UserProps;
 
-        const user = await userService.execute();
+        const userService = new CreateUserService();
+        const user = await userService.execute({ name, email });
+
         response.send(user);
     };
 };
