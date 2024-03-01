@@ -6,6 +6,7 @@ import {
 } from "fastify";
 import { ListUserController } from "./controllers/ListUserController";
 import { CreateUserController } from "./controllers/CreateUserController";
+import { DeleteUserController } from "./controllers/DeleteUserController";
 
 export async function fastifyRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
@@ -22,4 +23,7 @@ export async function fastifyRoutes(fastify: FastifyInstance, options: FastifyPl
     //ROUTE FOR UPDATE USER
 
     //ROUTE FOR DELETE USER
+    fastify.post('/user/delete', async (request: FastifyRequest, response: FastifyReply) => {
+        return new DeleteUserController().handleDeleteUser(request, response);
+    });
 };
