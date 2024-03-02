@@ -7,11 +7,9 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/ovasconceloss/dev-news">
   
-  <a href="https://github.com/ovasconcelos/dev-news/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ovasconceloss/dev-news">
-  </a>
-    
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ovasconceloss/dev-news">
+  
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
    
    <a href="https://github.com/ovasconceloss/dev-news/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/ovasconceloss/dev-news?style=social">
