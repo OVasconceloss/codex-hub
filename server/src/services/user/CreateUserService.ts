@@ -1,4 +1,4 @@
-import prismaClient from "../prisma/connectPrisma";
+import prismaClient from "../../prisma/connectPrisma";
 
 interface UserProps {
     name: string,
