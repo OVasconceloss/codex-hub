@@ -16,6 +16,7 @@
   "author": "Victor Vasconcelos",
   "license": "MIT",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.11.21",
     "prisma": "^5.10.2",
     "tsup": "^8.0.2",
