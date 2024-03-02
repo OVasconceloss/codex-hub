@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
-import { DeleteUserService } from '../services/DeleteUserService';
+import { DeleteUserService } from '../../services/user/DeleteUserService';
 
 interface UserProps {
     userId: string
