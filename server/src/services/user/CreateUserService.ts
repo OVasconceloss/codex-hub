@@ -2,20 +2,21 @@ import prismaClient from "../../prisma/connectPrisma";
 
 interface UserProps {
     name: string,
-    email: string
+    email: string,
+    hashedPassword: string,
 };
 
 class CreateUserService {
-    async execute({ name, email }: UserProps) {
+    async execute({ name, email, hashedPassword }: UserProps) {
         if (!name || !email) {
             throw new Error("The name and email field need to be defined");
         }
 
-        const user = await prismaClient.user.create({
+        const user = prismaClient.user.create({
             data: {
-                name,
-                email,
-                status: true
+                name: name,
+                email: email,
+                password: hashedPassword,
             }
         });
 
