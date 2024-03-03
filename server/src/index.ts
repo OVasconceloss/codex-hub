@@ -1,12 +1,13 @@
 import Fastify from 'fastify';
 import fastifyCors from '@fastify/cors';
-import { fastifyRoutes } from './routes';
+import { fastifyPostRoutes, fastifyUserRoutes } from './routes';
 
 const fastifyServer = Fastify();
 
 const startServer = async () => {
     await fastifyServer.register(fastifyCors);
-    await fastifyServer.register(fastifyRoutes);
+    await fastifyServer.register(fastifyUserRoutes);
+    await fastifyServer.register(fastifyPostRoutes);
 
     try {
         await fastifyServer.listen({ port: 8080 });
