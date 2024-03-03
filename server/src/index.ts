@@ -2,7 +2,7 @@ import Fastify from 'fastify';
 import fastifyCors from '@fastify/cors';
 import { fastifyRoutes } from './routes';
 
-const fastifyServer = Fastify({ logger: true });
+const fastifyServer = Fastify();
 
 const startServer = async () => {
     await fastifyServer.register(fastifyCors);
