@@ -12,6 +12,7 @@ import { DeleteUserController } from "./controllers/user/DeleteUserController";
 import { UpdateUserController } from "./controllers/user/UpdateUserController";
 import { LoginUserController } from "./controllers/user/auth/LoginUserController";
 import { CreatePostController } from "./controllers/post/CreatePostController";
+import { ListPostController } from "./controllers/post/ListPostController";
 
 interface CustomRequest extends FastifyRequestType { accessToken: any; }
 declare module 'fastify' { interface FastifyRequest extends CustomRequest {} }
@@ -46,5 +47,9 @@ export async function fastifyUserRoutes(fastify: FastifyInstance, options: Fasti
 export async function fastifyPostRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {
     fastify.post('/post', async (request: FastifyRequest, response: FastifyReply) => {
         return new CreatePostController().handleCreatePost(request, response);
+    });
+
+    fastify.get('/posts', async (request: FastifyRequest, response: FastifyReply) =>{
+        return new ListPostController().handleListPosts(request, response);
     });
 };
