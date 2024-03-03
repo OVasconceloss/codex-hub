@@ -2,24 +2,26 @@ import { FastifyReply } from "fastify";
 import prismaClient from "../../prisma/connectPrisma";
 
 interface UserProps {
-    name: string,
     email: string,
+    fullname: string,
+    nickname: string,
     hashedPassword: string,
 };
 
 class CreateUserService {
-    async execute({ name, email, hashedPassword }: UserProps, response: FastifyReply) {
-        if (!name || !email) {
-            throw new Error("The name and email field need to be defined");
+    async execute({ fullname, nickname, email, hashedPassword }: UserProps, response: FastifyReply) {
+        if (!fullname || !nickname || !email) {
+            throw new Error("The full name, nickname and email field need to be defined");
         }
 
-        const findUser = await prismaClient.user.findFirst({ where: { email: email }});
+        const findUser = await prismaClient.user.findFirst({ where: { nickname: nickname }});
 
         if (!findUser) {
             const user = prismaClient.user.create({
                 data: {
-                    name: name,
                     email: email,
+                    fullname: fullname,
+                    nickname: nickname,
                     password: hashedPassword,
                 }
             });

@@ -1,15 +1,15 @@
 import prismaClient from "../../prisma/connectPrisma";
 
 interface UserProps {
-    name: string,
     email: string,
     userId: string,
+    fullname: string,
 };
 
 class UpdateUserService {
-    async execute({ userId, name, email }: UserProps) {
-        if (!name || !email)
-            throw new Error("The name and email field need to be defined");
+    async execute({ userId, fullname, email }: UserProps) {
+        if (!fullname || !email)
+            throw new Error("The full name and email field need to be defined");
 
         const findUser = await prismaClient.user.findMany({ where: { id: userId } });
 
@@ -19,8 +19,8 @@ class UpdateUserService {
                     id: userId,
                 },
                 data: {
-                    name: name,
-                    email: email
+                    email: email,
+                    fullname: fullname,
                 }
             });
 
