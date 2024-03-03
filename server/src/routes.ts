@@ -14,6 +14,7 @@ import { LoginUserController } from "./controllers/user/auth/LoginUserController
 import { CreatePostController } from "./controllers/post/CreatePostController";
 import { ListPostController } from "./controllers/post/ListPostController";
 import { DeletePostController } from "./controllers/post/DeletePostController";
+import { UpdatePostController } from "./controllers/post/UpdatePostController";
 
 interface CustomRequest extends FastifyRequestType { accessToken: any; }
 declare module 'fastify' { interface FastifyRequest extends CustomRequest {} }
@@ -46,15 +47,19 @@ export async function fastifyUserRoutes(fastify: FastifyInstance, options: Fasti
 };
 
 export async function fastifyPostRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {
-    fastify.post('/post', async (request: FastifyRequest, response: FastifyReply) => {
+    fastify.post('/post', { preHandler: authenticateUser }, async (request: FastifyRequest, response: FastifyReply) => {
         return new CreatePostController().handleCreatePost(request, response);
     });
 
-    fastify.get('/posts', async (request: FastifyRequest, response: FastifyReply) => {
+    fastify.get('/posts', { preHandler: authenticateUser }, async (request: FastifyRequest, response: FastifyReply) => {
         return new ListPostController().handleListPosts(request, response);
     });
 
-    fastify.post('/post/delete', async (request: FastifyRequest, response: FastifyReply) => {
+    fastify.put('/post/update', { preHandler: authenticateUser }, async (request: FastifyRequest, response: FastifyReply) => {
+        return new UpdatePostController().handleUpdatePost(request, response);
+    });
+
+    fastify.post('/post/delete', { preHandler: authenticateUser }, async (request: FastifyRequest, response: FastifyReply) => {
         return new DeletePostController().handleDeletePost(request, response);
     });
 };
