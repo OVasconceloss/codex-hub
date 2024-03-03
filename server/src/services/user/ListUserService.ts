@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma/connectPrisma";
 
 class ListUserService {
-    async excute() {
+    async execute() {
         const users = await prismaClient.user.findMany();
         return users;
     };
