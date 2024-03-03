@@ -11,7 +11,7 @@ class LoginUserController {
         const { name, password } = request.body as UserProps;
 
         const loginService = new LoginUserSerivce();
-        const login = await loginService.execute({ name, password });
+        const login = await loginService.execute({ name, password }, response);
 
         response.send(login);
     };
