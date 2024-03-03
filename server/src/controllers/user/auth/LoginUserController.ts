@@ -2,16 +2,16 @@ import { FastifyRequest, FastifyReply } from "fastify";
 import { LoginUserSerivce } from "../../../services/user/auth/LoginUserService";
 
 interface UserProps {
-    name: string,
+    email: string,
     password: string
 }
 
 class LoginUserController {
     async handleLoginUser(request: FastifyRequest, response: FastifyReply) {
-        const { name, password } = request.body as UserProps;
+        const { email, password } = request.body as UserProps;
 
         const loginService = new LoginUserSerivce();
-        const login = await loginService.execute({ name, password }, response);
+        const login = await loginService.execute({ email, password }, response);
 
         response.send(login);
     };

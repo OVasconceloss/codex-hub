@@ -5,13 +5,13 @@ import jasonWebToken from 'jsonwebtoken';
 import prismaClient from "../../../prisma/connectPrisma";
 
 interface UserProps {
-    name: string,
+    email: string,
     password: string
 };
 
 class LoginUserSerivce {
-    async execute({password, name}: UserProps, response: FastifyReply) {
-        const finduser = await prismaClient.user.findFirst({ where: { name: name } });
+    async execute({password, email}: UserProps, response: FastifyReply) {
+        const finduser = await prismaClient.user.findFirst({ where: { email: email } });
 
         if (finduser) {
             if (!process.env.TOKEN_SECRET) {
