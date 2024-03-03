@@ -2,8 +2,7 @@ import {
     FastifyInstance, 
     FastifyPluginOptions, 
     FastifyRequest, 
-    FastifyReply,
-     
+    FastifyReply,    
 } from "fastify";
 import { authenticateUser } from "./middlewares/userAuth";
 import { FastifyRequestType } from "fastify/types/type-provider";
@@ -12,7 +11,7 @@ import { CreateUserController } from "./controllers/user/CreateUserController";
 import { DeleteUserController } from "./controllers/user/DeleteUserController";
 import { UpdateUserController } from "./controllers/user/UpdateUserController";
 import { LoginUserController } from "./controllers/user/auth/LoginUserController";
-
+import { CreatePostController } from "./controllers/post/CreatePostController";
 
 interface CustomRequest extends FastifyRequestType { accessToken: any; }
 declare module 'fastify' { interface FastifyRequest extends CustomRequest {} }
@@ -45,7 +44,7 @@ export async function fastifyUserRoutes(fastify: FastifyInstance, options: Fasti
 };
 
 export async function fastifyPostRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {
-    fastify.get('/post', async (request: FastifyRequest, response: FastifyReply) => {
-        return response.code(200).send({ message: 'OK' });
+    fastify.post('/post', async (request: FastifyRequest, response: FastifyReply) => {
+        return new CreatePostController().handleCreatePost(request, response);
     });
-}
+};
