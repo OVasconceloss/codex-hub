@@ -5,7 +5,7 @@ class ListUserController {
     async handleListUsers(request: FastifyRequest, response: FastifyReply) {
         const listUserService = new ListUserService();
 
-        const users = await listUserService.excute();
+        const users = await listUserService.execute();
 
         response.send(users);
     };
