@@ -16,7 +16,7 @@ class CreateUserController {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const userService = new CreateUserService();
-        const user = await userService.execute({ name, email, hashedPassword });
+        const user = await userService.execute({ name, email, hashedPassword }, response);
 
         response.send(user);
     };
