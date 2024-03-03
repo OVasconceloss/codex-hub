@@ -17,7 +17,7 @@ import { LoginUserController } from "./controllers/user/auth/LoginUserController
 interface CustomRequest extends FastifyRequestType { accessToken: any; }
 declare module 'fastify' { interface FastifyRequest extends CustomRequest {} }
 
-export async function fastifyRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {
+export async function fastifyUserRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {
     //ROUTE FOR CREATE USER
     fastify.post('/register', async (request: FastifyRequest, response: FastifyReply) => {
         return new CreateUserController().handleCreateUser(request, response);
@@ -43,3 +43,9 @@ export async function fastifyRoutes(fastify: FastifyInstance, options: FastifyPl
         return new DeleteUserController().handleDeleteUser(request, response);
     });
 };
+
+export async function fastifyPostRoutes(fastify: FastifyInstance, options: FastifyPluginOptions) {
+    fastify.get('/post', async (request: FastifyRequest, response: FastifyReply) => {
+        return response.code(200).send({ message: 'OK' });
+    });
+}
