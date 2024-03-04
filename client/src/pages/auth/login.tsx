@@ -35,7 +35,7 @@ const Login: React.FC = () => {
         const isPasswordValid = verifyPassword(password);
 
         if (isEmailValid && isPasswordValid) {
-            setAccessToken({email, password});
+            setAccessToken({email, password}, setError, setErrorMessage);
         } else if (!isEmailValid && !isPasswordValid) {
             setError(true);
             setErrorMessage("The credentials are invalid. Try again");
@@ -52,7 +52,7 @@ const Login: React.FC = () => {
         if (error) {
             setTimeout(() => {
                 setError(false);
-            }, 2000);
+            }, 2500);
         }
     }, [error]);
 
