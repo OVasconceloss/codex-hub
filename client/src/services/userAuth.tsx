@@ -13,9 +13,6 @@ export const setAccessToken = async ({ email, password, }: UserProps) => {
         });
 
         const accessToken = response.data.accessToken;
-
-        sessionStorage.setItem('email', email);
-        sessionStorage.setItem('password', password);
         sessionStorage.setItem('accessToken', accessToken);
         
         return accessToken;
@@ -23,3 +20,7 @@ export const setAccessToken = async ({ email, password, }: UserProps) => {
         return false;
     }
 };
+
+export const getAcessToken = () => {
+    return sessionStorage.getItem('accessToken');
+}
