@@ -2,12 +2,28 @@ import { useState } from "react";
 import { Header } from "../../components/header/header";
 import { setAccessToken } from "../../services/userAuth";
 
+interface Error {
+    error: boolean,
+}
+
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
+    const [error, setError] = useState<Error>();
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = async () => {
-        setAccessToken({email, password});
+        const verifyEmail = (email: string) => {
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (emailRegex.test(email) === true)
+                setAccessToken({email, password});
+            else {
+                setError({ error: true });
+                setErrorMessage("The email address is invalid. Please try again");
+            }
+        };
+
+        verifyEmail(email);
     };
 
     return (
@@ -40,6 +56,11 @@ const Login: React.FC = () => {
                 </div>
             </div>
         </main>
+        {error && (
+            <div className="w-[25rem] fixed bottom-5 right-5 bg-red-500 text-zinc-50 py-2 px-4 rounded shadow">
+                {errorMessage}
+            </div>
+        )} 
         </>
     );
 };
