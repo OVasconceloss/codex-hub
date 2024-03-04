@@ -5,7 +5,7 @@ export const Header: React.FC = () => {
     const [isLogged, setIsLogged] = useState(false);
 
     useEffect(() => {
-        const accessToken = localStorage.getItem('accessToken');
+        const accessToken = sessionStorage.getItem('accessToken');
 
         if (accessToken) setIsLogged(true);
 
