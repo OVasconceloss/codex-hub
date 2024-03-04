@@ -35,7 +35,12 @@ const Login: React.FC = () => {
         const isPasswordValid = verifyPassword(password);
 
         if (isEmailValid && isPasswordValid) {
-            setAccessToken({email, password}, setError, setErrorMessage);
+            setAccessToken({email, password});
+
+            if (await setAccessToken({email, password}) == false) {
+                setError(true);
+                setErrorMessage("This user doesn't exist.");
+            }
         } else if (!isEmailValid && !isPasswordValid) {
             setError(true);
             setErrorMessage("The credentials are invalid. Try again");
