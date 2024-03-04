@@ -5,7 +5,7 @@ interface UserProps {
     password: string,
 }
 
-export const setAccessToken = async ({ email, password, }: UserProps, setError: (error: boolean) => void, setErrorMessage: (errorMessage: string) => void) => {
+export const setAccessToken = async ({ email, password, }: UserProps) => {
     try {
         const response = await axios.post('http://localhost:8080/user/login', {
             email: email,
@@ -14,15 +14,12 @@ export const setAccessToken = async ({ email, password, }: UserProps, setError: 
 
         const accessToken = response.data.accessToken;
 
-        localStorage.setItem('email', email);
-        localStorage.setItem('password', password);
-        localStorage.setItem('accessToken', accessToken);
+        sessionStorage.setItem('email', email);
+        sessionStorage.setItem('password', password);
+        sessionStorage.setItem('accessToken', accessToken);
         
         return accessToken;
     } catch (accessError) {
-        console.log(accessError);
-        setError(true);
-        setErrorMessage("This user doesn't exist.");
-        return;
+        return false;
     }
 };

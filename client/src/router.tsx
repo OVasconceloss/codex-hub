@@ -11,8 +11,8 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => 
     useEffect(() => {
         const checkAuthentication = async () => {
             try {
-                const email = localStorage.getItem('email');
-                const password = localStorage.getItem('password');
+                const email = sessionStorage.getItem('email');
+                const password = sessionStorage.getItem('password');
 
                 if (!email || !password) {
                     setAuthenticated(false);
@@ -24,7 +24,7 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => 
 
                 if (accessToken) {
                     setAuthenticated(true);
-                    localStorage.setItem('accessToken', accessToken);
+                    sessionStorage.setItem('accessToken', accessToken);
                 } else {
                     setAuthenticated(false);
                 }
