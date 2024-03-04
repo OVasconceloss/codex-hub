@@ -13,10 +13,6 @@ export const setAccessToken = async ({ email, password }: UserProps) => {
         });
 
         const accessToken = response.data.accessToken;
-
-        localStorage.setItem('email', email);
-        localStorage.setItem('password', password);
-        localStorage.setItem('accessToken', accessToken);
         
         return accessToken;
     } catch (accessError) {
