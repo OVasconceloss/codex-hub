@@ -81,7 +81,8 @@ const Login: React.FC = () => {
                     />
                     <button
                         onClick={handleSubmit} 
-                        className="p-2 text-zinc-50 border border-zinc-900 rounded-md bg-zinc-900"
+                        className="p-2 text-zinc-50 border border-zinc-900 rounded-md bg-zinc-900
+                        transition ease-linear hover:border-zinc-900 hover:bg-transparent hover:text-zinc-900"
                     >Login</button>
                 </div>
             </div>
