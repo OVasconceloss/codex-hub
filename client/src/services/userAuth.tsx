@@ -2,10 +2,10 @@ import axios from "axios"
 
 interface UserProps {
     email: string,
-    password: string
+    password: string,
 }
 
-export const setAccessToken = async ({ email, password }: UserProps) => {
+export const setAccessToken = async ({ email, password, }: UserProps) => {
     try {
         const response = await axios.post('http://localhost:8080/user/login', {
             email: email,
