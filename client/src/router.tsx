@@ -1,7 +1,7 @@
 import Home from "./pages/home";
 import Login from "./pages/auth/login";
 import React, { useEffect, useState } from "react";
-import { setAccessToken } from "./services/userAuth";
+import { getAcessToken } from "./services/userAuth";
 import { Navigate, Routes, Route } from "react-router-dom";
 
 const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => {
@@ -11,20 +11,16 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => 
     useEffect(() => {
         const checkAuthentication = async () => {
             try {
-                const email = sessionStorage.getItem('email');
-                const password = sessionStorage.getItem('password');
+                const accessToken = getAcessToken();
 
-                if (!email || !password) {
+                if (!accessToken) {
                     setAuthenticated(false);
                     setLoading(false);
                     return;
                 }
 
-                const accessToken = await setAccessToken({ email, password });
-
                 if (accessToken) {
                     setAuthenticated(true);
-                    sessionStorage.setItem('accessToken', accessToken);
                 } else {
                     setAuthenticated(false);
                 }
