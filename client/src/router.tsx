@@ -33,9 +33,11 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => 
         };
 
         checkAuthentication();
-    }, []);
+    }, [authenticated, loading]);
 
-    if (loading) return <div></div>;
+    if (loading) {
+        return <div></div>;
+    }
 
     if (authenticated) {
         return <React.Fragment>{element}</React.Fragment>;
