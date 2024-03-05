@@ -1,5 +1,5 @@
 {
-  "name": "dev-news-server",
+  "name": "codex-hub-server",
   "version": "1.0.0",
   "description": "A forum dedicated to programming, focused on learning and discussing various topics related to the area.",
   "main": "index.js",
