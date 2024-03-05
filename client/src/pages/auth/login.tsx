@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/header/header";
 import { setAccessToken } from "../../services/userAuth";
 
 const Login: React.FC = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<boolean>(false);
@@ -38,11 +39,14 @@ const Login: React.FC = () => {
         const isPasswordValid = verifyPassword(password);
 
         if (isEmailValid && isPasswordValid) {
-            setAccessToken({email, password});
+            const success = await setAccessToken({email, password});
+            console.log(success);
 
-            if (await setAccessToken({email, password}) == false) {
+            if (!success) {
                 setError(true);
                 setErrorMessage("This user doesn't exist.");
+            } else {
+                navigate('/');
             }
         } else if (!isEmailValid && !isPasswordValid) {
             setError(true);
@@ -99,8 +103,9 @@ const Login: React.FC = () => {
                     <button
                         onClick={handleSubmit} 
                         className="w-[30rem] p-2 my-5 text-zinc-50 border border-zinc-900 rounded-md bg-zinc-900
-                        transition ease-linear hover:border-zinc-900 hover:bg-transparent hover:text-zinc-900"
-                    >Sign In</button>
+                        transition ease-linear hover:border-zinc-900 hover:bg-transparent hover:text-zinc-900">
+                            Sign In
+                    </button>
                     <div className="w-[30rem]">
                         <h3 className="text-center">
                             Don't have an account? <Link to={'/register'} className="text-blue-500 transition ease-linear hover:text-blue-800">Create a new one!</Link>
