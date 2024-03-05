@@ -1,5 +1,5 @@
 <h1 align="center">
-     📰 <a href="" alt="React URL"> DevNews</a>
+     📰 <a href="" alt="React URL">CodexHub</a>
 </h1>
 
 <p align="center">
