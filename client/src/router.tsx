@@ -1,3 +1,4 @@
+import Home from "./pages/home";
 import Landing from "./pages/landing";
 import Login from "./pages/auth/login";
 import React, { useEffect, useState } from "react";
@@ -51,6 +52,7 @@ const Router: React.FC = () => {
         <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<ProtectedRoute element={<Landing />} />} />
+            <Route path="/explorer" element={<ProtectedRoute element={ <Home /> } />} />
         </Routes>
     );
 };
