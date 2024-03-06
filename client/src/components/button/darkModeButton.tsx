@@ -1,19 +1,20 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useDarkMode } from "../../hooks/useDarkMode";
 
 export const DarkModeButton = () => {
     const [colorTheme, setColorTheme] = useDarkMode();
     const [darkMode, setDarkMode] = useState(colorTheme === 'dark');
 
-    const toggleDarkMode = () => {
+    const toggleDarkMode = useCallback(() => {
         const newTheme = darkMode ? 'light' : 'dark';
 
         setDarkMode(!darkMode);
         setColorTheme(newTheme);
-    }
+    }, [darkMode, setColorTheme]);
 
-    useEffect(() => toggleDarkMode(), []);
+    useEffect(() => {
+        setColorTheme(darkMode ? 'dark' : 'light');
+    }, [darkMode, setColorTheme]);
 
     return (
         <button 
