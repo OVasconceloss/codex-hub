@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import logoImage from "/images/codexhub-logo.png";
+import { DarkModeButton } from "../components/button/darkModeButton";
 
 const Landing: React.FC = () => {
     return (
@@ -41,10 +42,11 @@ const Landing: React.FC = () => {
                         <button className="py-2 px-5 text-zinc-100 border rounded-sm
                         transition ease-linear hover:text-indigo-500 hover:border-indigo-500">Sign In</button>
                     </Link>
+                    <DarkModeButton />
                 </div>
             </div>
         </header>
-        <main className="flex flex-col items-center pt-20">
+        <main className="flex flex-col items-center pt-24">
             <section className="h-full flex flex-col items-center space-y-7 p-5">
                 <h3 className="text-lg text-indigo-500">CodexHub Discussion</h3>
                 <h1 className="w-[40rem] text-4xl font-bold text-center tracking-wide">Promoting teamwork and ongoing learning for developers worldwide</h1>
