@@ -1,4 +1,4 @@
-import Home from "./pages/home";
+import Landing from "./pages/landing";
 import Login from "./pages/auth/login";
 import React, { useEffect, useState } from "react";
 import { getAcessToken } from "./services/userAuth";
@@ -50,7 +50,7 @@ const Router: React.FC = () => {
     return (
         <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<ProtectedRoute element={<Home />} />} />
+            <Route path="/" element={<ProtectedRoute element={<Landing />} />} />
         </Routes>
     );
 };
