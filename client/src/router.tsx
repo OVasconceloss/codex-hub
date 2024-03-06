@@ -50,8 +50,8 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => 
 const Router: React.FC = () => {
     return (
         <Routes>
+            <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<ProtectedRoute element={<Landing />} />} />
             <Route path="/explorer" element={<ProtectedRoute element={ <Home /> } />} />
         </Routes>
     );
