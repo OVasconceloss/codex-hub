@@ -46,7 +46,7 @@ const Login: React.FC = () => {
                 setError(true);
                 setErrorMessage("This user doesn't exist.");
             } else {
-                navigate('/');
+                navigate('/explorer');
             }
         } else if (!isEmailValid && !isPasswordValid) {
             setError(true);
@@ -76,41 +76,44 @@ const Login: React.FC = () => {
         <main className="flex flex-col w-screen p-5">
             <div className="flex flex-col items-center justify-center mt-8">
                 <div className="flex flex-col w-[30rem] p-5">
-                    <h1 className="text-2xl font-bold text-left mb-14">Welcome Back!</h1>
+                    <h1 className="text-2xl font-bold text-left mb-14 dark:text-zinc-100">Welcome Back!</h1>
                     <div className="flex flex-col">
-                        <label htmlFor="email" className="mb-1">Email</label>
+                        <label htmlFor="email" className="mb-1 dark:text-zinc-100">Email</label>
                         <input 
                             type="email"
                             name="email"
                             data-fail={errorEmail}
                             onChange={(event) => setEmail(event.target.value)}
                             placeholder="example@gmail.com"
-                            className="w-[30rem] mb-10 p-2 outline-none border border-zinc-300 rounded-md
-                            transition ease-linear focus:border-zinc-900 data-[fail=true]:border-red-500"
+                            className="w-[30rem] mb-10 p-2 outline-none border-2 border-zinc-300 rounded-md
+                            transition ease-linear focus:border-zinc-900 data-[fail=true]:border-red-500
+                            dark:focus:border-indigo-500"
                         />
                     </div>
                     <div className="flex flex-col">
-                        <label htmlFor="password" className="mb-1">Password</label>
+                        <label htmlFor="password" className="mb-1 dark:text-zinc-100">Password</label>
                         <input 
                             type="password"
                             name="password"
                             data-fail={errorPassword}
                             onChange={(event) => setPassword(event.target.value)}
-                            className="w-[30rem] mb-10 p-2 outline-none border border-zinc-300 rounded-md
-                            transition ease-linear focus:border-zinc-900 data-[fail=true]:border-red-500"
+                            className="w-[30rem] mb-10 p-2 outline-none border-2 border-zinc-300 rounded-md
+                            transition ease-linear focus:border-zinc-900 data-[fail=true]:border-red-500
+                            dark:focus:border-indigo-500"
                         />
                     </div>
                     <button
                         onClick={handleSubmit} 
                         className="w-[30rem] p-2 my-5 text-zinc-50 border border-zinc-900 rounded-md bg-zinc-900
-                        transition ease-linear hover:border-zinc-900 hover:bg-transparent hover:text-zinc-900">
+                        transition ease-linear hover:border-zinc-900 hover:bg-transparent hover:text-zinc-900
+                        dark:border-indigo-500 dark:text-indigo-500 dark:hover:bg-indigo-500 dark:hover:text-zinc-100">
                             Sign In
                     </button>
                     <div className="w-[30rem]">
-                        <h3 className="text-center">
-                            Don't have an account? <Link to={'/register'} className="text-blue-500 transition ease-linear hover:text-blue-800">Create a new one!</Link>
+                        <h3 className="text-center dark:text-zinc-100">
+                            Don't have an account? <Link to={'/register'} className="text-indigo-500 transition ease-linear hover:text-indigo-800">Create a new one!</Link>
                         </h3>
-                        <hr className="w-full mt-5 text-center border-1 border-zinc-300" />
+                        <hr className="w-full mt-5 text-center border-1 border-zinc-300 dark:border-zinc-500" />
                     </div>
                 </div>
             </div>
