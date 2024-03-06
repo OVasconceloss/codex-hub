@@ -20,7 +20,7 @@ const Landing: React.FC = () => {
             <div className="flex items-center space-x-5">
                 <nav className="space-x-5">
                     <Link 
-                        to={'/explore'} 
+                        to={'/explorer'} 
                         className="px-2 py-1 text-zinc-100 border-b border-zinc-900 
                         transition ease-linear hover:border-indigo-500 hover:text-indigo-500
                         dark:border-zinc-800 dark:hover:border-indigo-500">Explore</Link>
