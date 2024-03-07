@@ -6,7 +6,8 @@ const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="absolute bottom-0 w-[60rem] flex items-center justify-between px-5 border-t border-zinc-500">
+        <footer className="w-[60rem] dark:w-[60rem] flex items-center justify-between px-5 border-t border-zinc-500
+        bg-zinc-900">
             <div className="flex items-center space-x-1">
                 <img 
                     src={logoImage} 
