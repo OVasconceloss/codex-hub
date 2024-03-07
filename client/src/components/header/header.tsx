@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
                         to={'/aboutus'}
                         className="px-2 py-1 text-zinc-100 border-b border-zinc-900 
                         transition ease-linear hover:border-indigo-500 hover:text-indigo-500
-                        dark:border-zinc-800 dark:hover:border-indigo-500">About Us</Link>
+                        dark:border-zinc-800 dark:hover:border-indigo-500">About</Link>
                 </nav>
                 <h3 className="text-zinc-500">|</h3>
                 <div className="space-x-5">
