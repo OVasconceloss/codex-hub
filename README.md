@@ -24,15 +24,15 @@
 
 ## 💻 About
 
-DevNews is a minimalist website designed to act as a straightforward forum where users can easily access a variety of programming-related content. With just a few clicks, visitors can explore a range of resources that truly enhance their knowledge.
+CodexHub is a minimalist website designed to act as a straightforward forum where users can easily access a variety of programming-related content. With just a few clicks, visitors can explore a range of resources that truly enhance their knowledge.
 
 ---
 
 ## ⚙️ Features
 
-- [ ] Create account
+- [x] Create account
 - [ ] Search posts by topic
-- [ ] Turn on a user profile
+- [x] Turn on a user profile
 - [ ] Create posts (questions)
 - [ ] Comment on posts (questions)
 
@@ -49,7 +49,7 @@ Before you begin, you will need to have the following tools installed on your ma
 ```bash
 
 # Clone this repository
-$ git clone https://github.com/OVasconceloss/dev-news.git
+$ git clone https://github.com/OVasconceloss/codex-hub.git
 
 # Access the project folder in your terminal/cmd
 $ cd client
@@ -69,7 +69,7 @@ $ npm run dev
 ```bash
 
 # Clone this repository
-$ git clone https://github.com/OVasconceloss/dev-news.git
+$ git clone https://github.com/OVasconceloss/codex-hub.git
 
 # Access the project folder in your terminal/cmd
 $ cd server
