@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import Footer from "../../components/footer/footer";
 import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/header/header";
 import { setAccessToken } from "../../services/userAuth";
-import Footer from "../../components/footer/footer";
 
 const Login: React.FC = () => {
     const navigate = useNavigate();
@@ -119,7 +119,7 @@ const Login: React.FC = () => {
                 </div>
             </div>
         </main>
-        <div className="flex items-center justify-center">
+        <div className="w-full absolute bottom-0 flex items-center justify-center bg-zinc-900">
             <Footer />
         </div>
         { (error || errorEmail || errorPassword) && (
