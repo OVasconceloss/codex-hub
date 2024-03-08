@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Footer from "../../components/footer/footer";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/header/header";
+import { createUserService } from "../../services/userService";
 
 const Register: React.FC = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [nickName, setNickName] = useState('');
@@ -59,7 +61,9 @@ const Register: React.FC = () => {
 
     const handleSubmit = async () => {
         if (validateInput()) {
-            console.log('CERTO');
+            await createUserService({fullName, nickName, email, password});
+
+            navigate('/login');
         }
     };
 
