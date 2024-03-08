@@ -21,7 +21,7 @@ class CreateUserService {
                 data: {
                     email: email,
                     fullname: fullname,
-                    nickname: nickname,
+                    nickname: nickname.toLowerCase(),
                     password: hashedPassword,
                 }
             });
