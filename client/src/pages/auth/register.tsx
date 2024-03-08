@@ -94,7 +94,6 @@ const Register: React.FC = () => {
                             <input 
                                 type="text"
                                 name="fullname"
-                                placeholder="Pedro Silva"
                                 onChange={(event) => setFullName(event.target.value)}
                                 className={`w-[14rem] mb-10 p-2 outline-none border-2 rounded-md
                                 transition ease-linear focus:border-zinc-900
@@ -106,9 +105,8 @@ const Register: React.FC = () => {
                             <input 
                                 type="text"
                                 name="nickname"
-                                placeholder="opedrosilva"
                                 onChange={(event) => setNickName(event.target.value)}
-                                className={`w-[14rem] mb-10 p-2 outline-none border-2 rounded-md
+                                className={`w-[15rem] mb-10 p-2 outline-none border-2 rounded-md
                                 transition ease-linear focus:border-zinc-900
                                 ${error && (nickName === "") && "border-red-500"}`}
                             />
@@ -119,7 +117,6 @@ const Register: React.FC = () => {
                         <input 
                             type="email"
                             name="email"
-                            placeholder="example@gmail.com"
                             onChange={(event) => setEmail(event.target.value)}
                             className={`w-[30rem] mb-10 p-2 outline-none border-2 rounded-md
                             transition ease-linear focus:border-zinc-900

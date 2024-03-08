@@ -105,7 +105,6 @@ const Login: React.FC = () => {
                             name="email"
                             data-fail={errorEmail}
                             onChange={(event) => setEmail(event.target.value)}
-                            placeholder="example@gmail.com"
                             className="w-[30rem] mb-10 p-2 outline-none border-2 border-zinc-300 rounded-md
                             transition ease-linear focus:border-zinc-900 data-[fail=true]:border-red-500
                             dark:focus:border-indigo-500"
