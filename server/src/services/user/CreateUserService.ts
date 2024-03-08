@@ -14,7 +14,7 @@ class CreateUserService {
             throw new Error("The full name, nickname and email field need to be defined");
         }
 
-        const findUser = await prismaClient.user.findFirst({ where: { nickname: nickname }});
+        const findUser = await prismaClient.user.findFirst({ where: { email: email }});
 
         if (!findUser) {
             const user = prismaClient.user.create({
