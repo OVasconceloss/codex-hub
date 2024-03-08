@@ -61,9 +61,10 @@ const Register: React.FC = () => {
 
     const handleSubmit = async () => {
         if (validateInput()) {
-            await createUserService({fullName, nickName, email, password});
+            const success = await createUserService({fullName, nickName, email, password});
 
             navigate('/login');
+            sessionStorage.setItem('createUserSuccess', JSON.stringify(success));
         }
     };
 
