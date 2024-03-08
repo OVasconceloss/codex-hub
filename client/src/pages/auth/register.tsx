@@ -63,8 +63,13 @@ const Register: React.FC = () => {
         if (validateInput()) {
             const success = await createUserService({fullName, nickName, email, password});
 
-            navigate('/login');
-            sessionStorage.setItem('createUserSuccess', JSON.stringify(success));
+            if (success) {
+                navigate('/login');
+                sessionStorage.setItem('createUserSuccess', JSON.stringify(success));
+            } else {
+                setError(true);
+                setErrorMessage("This email has already been registered, try another");                
+            }
         }
     };
 
