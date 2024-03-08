@@ -8,10 +8,21 @@ const Login: React.FC = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isNew, setIsNew] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [errorEmail, setErrorEmail] = useState<boolean>(false);
     const [errorPassword, setErrorPassword] = useState<boolean>(false);
+
+    const showCreateUserSuccess = () => {
+        const userCreated = sessionStorage.getItem('createUserSuccess');
+
+        if (userCreated == 'true') {
+            setIsNew(true);
+        } else {
+            setIsNew(false);
+        }
+    }
 
     const verifyEmail = (email: string) => {
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -62,6 +73,8 @@ const Login: React.FC = () => {
     };
 
     useEffect(() => {
+        showCreateUserSuccess();
+
         if (error || errorEmail || errorPassword) {
             setTimeout(() => {
                 setError(false);
@@ -69,7 +82,14 @@ const Login: React.FC = () => {
                 setErrorPassword(false);
             }, 2500);
         }
-    }, [error, errorEmail, errorPassword]);
+
+        if (isNew) {
+            setTimeout(() => {
+                setIsNew(false);
+                sessionStorage.removeItem('createUserSuccess');
+            }, 1500);
+        }
+    }, [error, errorEmail, errorPassword, isNew]);
 
     return (
         <>
@@ -125,6 +145,11 @@ const Login: React.FC = () => {
         { (error || errorEmail || errorPassword) && (
             <div className="w-[25rem] fixed bottom-5 right-5 bg-red-500 text-zinc-50 py-2 px-4 rounded shadow text-center">
                 {errorMessage}
+            </div>
+        )}
+        { (isNew) && (
+            <div className="w-[25rem] fixed bottom-5 right-5 bg-emerald-500 text-zinc-50 py-2 px-4 rounded shadow text-center">
+                User created successfully!
             </div>
         )}
         </>
