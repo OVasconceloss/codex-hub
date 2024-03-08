@@ -24,3 +24,8 @@ export const setAccessToken = async ({ email, password, }: UserProps) => {
 export const getAcessToken = () => {
     return sessionStorage.getItem('accessToken');
 }
+
+export const clearAccessToken = () => {
+    window.location.reload();
+    return sessionStorage.removeItem('accessToken');
+}
