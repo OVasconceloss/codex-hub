@@ -39,15 +39,15 @@ export const Header: React.FC = () => {
                     {!isLogged ?
                         <>
                             <Link to={'/register'}>
-                                <button className="py-2 px-5 text-zinc-100 border rounded-sm transition ease-linear hover:bg-indigo-500 hover:border-indigo-500">Sign Up</button>
+                                <button className="py-2 px-5 mr-3 text-zinc-100 border rounded-sm transition ease-linear hover:bg-indigo-500 hover:border-indigo-500">Sign Up</button>
                             </Link>
                             <Link to={'/login'}>
-                                <button className="py-2 px-5 text-zinc-100 border rounded-sm transition ease-linear hover:text-indigo-500 hover:border-indigo-500">Sign In</button>
+                                <button className="py-2 px-5 mr-3 text-zinc-100 border rounded-sm transition ease-linear hover:text-indigo-500 hover:border-indigo-500">Sign In</button>
                             </Link>
                         </>
                         :
                         <>
-                            <button onClick={handleProfileClick} className={`${showMenu ? 'hidden' : 'py-2 px-5 mr-5 text-zinc-100 border rounded-sm transition ease-linear hover:text-indigo-500 hover:border-indigo-500'}`}>Profile</button>
+                            <button onClick={handleProfileClick} className={`${showMenu ? 'hidden' : 'py-2 px-5 mr-3 text-zinc-100 border rounded-sm transition ease-linear hover:text-indigo-500 hover:border-indigo-500'}`}>Profile</button>
                             {showMenu && <ProfileMenu handleLogout={handleLogout} handleProfileClick={handleProfileClick} />}
                         </>
                     }
