@@ -45,7 +45,7 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => 
         return <React.Fragment>{element}</React.Fragment>;
     }
 
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
 };
 
 const Router: React.FC = () => {
