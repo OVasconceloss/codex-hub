@@ -17,6 +17,7 @@ import { DeletePostController } from "./controllers/post/DeletePostController";
 import { UpdatePostController } from "./controllers/post/UpdatePostController";
 import { ListUserPostController } from "./controllers/post/ListUserPostController";
 import { DeleteAllPostController } from "./controllers/post/DeleteAllPostController";
+import { ListOnePostController } from "./controllers/post/ListOnePostController";
 
 interface CustomRequest extends FastifyRequestType { accessToken: any; }
 declare module 'fastify' { interface FastifyRequest extends CustomRequest {} }
@@ -55,6 +56,10 @@ export async function fastifyPostRoutes(fastify: FastifyInstance, options: Fasti
 
     fastify.get('/posts', { preHandler: authenticateUser }, async (request: FastifyRequest, response: FastifyReply) => {
         return new ListPostController().handleListPosts(request, response);
+    });
+
+    fastify.get('/post/:postId', { preHandler: authenticateUser }, async (request: FastifyRequest, response: FastifyReply) => {
+            return new ListOnePostController().handleListOnePost(request, response);
     });
 
     fastify.put('/post/update', { preHandler: authenticateUser }, async (request: FastifyRequest, response: FastifyReply) => {
