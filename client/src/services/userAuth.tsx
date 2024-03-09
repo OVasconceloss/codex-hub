@@ -11,12 +11,17 @@ export const setAccessToken = async ({ email, password, }: UserProps) => {
             email: email,
             password: password
         });
-
+        const userId = response.data.finduser.id;
         const accessToken = response.data.accessToken;
+        const userNickname = response.data.finduser.nickname;
+
+        sessionStorage.setItem('userId', userId);
         sessionStorage.setItem('accessToken', accessToken);
+        sessionStorage.setItem('userNickname', userNickname);
         
         return accessToken;
     } catch (accessError) {
+        console.log(accessError);
         return false;
     }
 };
