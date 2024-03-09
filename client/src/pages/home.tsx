@@ -19,7 +19,12 @@ const Home: React.FC = () => {
 
     const handleSetPost = async () => {
         const allposts = await listAllPosts();
-        setPosts(allposts);
+    
+        const sortedPosts = allposts.slice().sort((postA: Post, postB: Post) => {
+            return new Date(postB.created_at).getTime() - new Date(postA.created_at).getTime();
+        });
+    
+        setPosts(sortedPosts);
     }
 
     useEffect(() => {
