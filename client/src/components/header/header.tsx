@@ -51,6 +51,9 @@ export const Header: React.FC = () => {
                             {showMenu && <ProfileMenu handleLogout={handleLogout} handleProfileClick={handleProfileClick} />}
                         </>
                     }
+                    {isLogged && <Link to={'/post'}>
+                        <button className="py-2 px-5 mr-3 text-zinc-100 border rounded-sm transition ease-linear hover:text-indigo-500 hover:border-indigo-500">Create</button>                    
+                    </Link>}
                     <DarkModeButton />
                 </div>
             </nav>
