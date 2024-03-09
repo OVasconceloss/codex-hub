@@ -25,7 +25,7 @@ class LoginUserSerivce {
                 const accessToken = jasonWebToken.sign(JSON.stringify(finduser), process.env.TOKEN_SECRET);
                 response.header('authorization', `Bearer ${accessToken}`);
 
-                return response.send({ accessToken });
+                return response.send({ accessToken, finduser });
             } else {
                 return response.code(401).send({ error: "Invalid Credentials" });
             };
