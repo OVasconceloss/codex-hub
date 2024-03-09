@@ -2,6 +2,7 @@ import Home from "./pages/home";
 import Landing from "./pages/landing";
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
+import CreatePost from "./pages/posts/createPost";
 import React, { useEffect, useState } from "react";
 import { getAcessToken } from "./services/userAuth";
 import { Navigate, Routes, Route } from "react-router-dom";
@@ -53,6 +54,7 @@ const Router: React.FC = () => {
         <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/post" element={ <CreatePost /> } />
             <Route path="/register" element={ <Register /> }  />
             <Route path="/explorer" element={<ProtectedRoute element={ <Home /> } />} />
         </Routes>
