@@ -22,7 +22,7 @@ export const PostLabel: React.FC<LabelPost> = ({ post }) => {
     return (
         <div className="w-[60rem] p-3 my-2 bg-zinc-100 rounded-md scale-100 
         transition ease-linear hover:scale-105 dark:bg-zinc-800">
-            <Link to={`posts/${post.userId}`}>
+            <Link to={`/post/${post.userId}`}>
                 <h1 className="text-xl dark:text-zinc-100 hover:underline">{ post.title }</h1>
             </Link>
             <div className="w-72 mt-2 flex items-center space-x-2">
