@@ -52,7 +52,6 @@ const Login: React.FC = () => {
 
         if (isEmailValid && isPasswordValid) {
             const success = await setAccessToken({email, password});
-            console.log(success);
 
             if (!success) {
                 setError(true);
