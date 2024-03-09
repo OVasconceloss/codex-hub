@@ -6,6 +6,7 @@ import CreatePost from "./pages/posts/createPost";
 import React, { useEffect, useState } from "react";
 import { getAcessToken } from "./services/userAuth";
 import { Navigate, Routes, Route } from "react-router-dom";
+import ShowPost from "./pages/posts/showPost";
 
 const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({ element }) => {
     const [loading, setLoading] = useState(true);
@@ -57,6 +58,7 @@ const Router: React.FC = () => {
             <Route path="/post" element={ <CreatePost /> } />
             <Route path="/register" element={ <Register /> }  />
             <Route path="/explorer" element={<ProtectedRoute element={ <Home /> } />} />
+            <Route path="/post/:id" element={ <ProtectedRoute element={ <ShowPost /> } />} />
         </Routes>
     );
 };
