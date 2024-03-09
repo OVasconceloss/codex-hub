@@ -1,5 +1,10 @@
 import axios from "axios";
 
+interface PostProps {
+    postTitle: string,
+    postContent: string,
+}
+
 export const listAllPosts = async () => {
     const accessToken = sessionStorage.getItem('accessToken');
 
@@ -15,3 +20,27 @@ export const listAllPosts = async () => {
         return [];
     }
 };
+
+export const createPost = async ({postTitle, postContent}: PostProps) => {
+    const userId = sessionStorage.getItem('userId');
+    const accessToken = sessionStorage.getItem('accessToken');
+    const userNickname = sessionStorage.getItem('userNickname');
+
+    try {
+        await axios.post('http://localhost:8080/post', {
+            title: postTitle,
+            text: postContent,
+            userId: userId,
+            nickname: userNickname,
+        }, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            },
+        });
+
+        return true;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
