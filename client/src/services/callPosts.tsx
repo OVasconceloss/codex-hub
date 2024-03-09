@@ -44,3 +44,20 @@ export const createPost = async ({postTitle, postContent}: PostProps) => {
         return false;
     }
 }
+
+export const getPostData = async (id: string) => {
+    const accessToken = sessionStorage.getItem('accessToken');
+
+    try {
+        const response = await axios.get(`http://localhost:8080/post/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            },
+        });
+
+        return response;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
