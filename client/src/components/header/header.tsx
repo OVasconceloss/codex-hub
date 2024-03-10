@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
                 <div className="flex items-center space-x-5">
                     <Link to={'/explorer'} className="px-2 py-1 text-zinc-100 border-b border-zinc-900 transition ease-linear hover:border-indigo-500 hover:text-indigo-500 dark:border-zinc-800 dark:hover:border-indigo-500">Explore</Link>
                     <a href="https://github.com/OVasconceloss/codex-hub" target="_blank" rel="noopener noreferrer" className="px-2 py-1 text-zinc-100 border-b border-zinc-900 transition ease-linear hover:border-indigo-500 hover:text-indigo-500 dark:border-zinc-800 dark:hover:border-indigo-500">Github</a>
-                    <Link to={'/aboutus'} className="px-2 py-1 text-zinc-100 border-b border-zinc-900 transition ease-linear hover:border-indigo-500 hover:text-indigo-500 dark:border-zinc-800 dark:hover:border-indigo-500">About</Link>
+                    <Link to={'/post/65ee26a5cf3e9aa01f615504'} className="px-2 py-1 text-zinc-100 border-b border-zinc-900 transition ease-linear hover:border-indigo-500 hover:text-indigo-500 dark:border-zinc-800 dark:hover:border-indigo-500">About</Link>
                 </div>
                 <h3 className="text-zinc-500">|</h3>
                 <div className="flex">
