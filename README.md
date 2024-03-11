@@ -18,7 +18,7 @@
 
 <hr>
 
-<img src="" alt="Project Image">
+<img src="./design/codexhub-image.png" alt="Project Image">
 
 <hr>
 
