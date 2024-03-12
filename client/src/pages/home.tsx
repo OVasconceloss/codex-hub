@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Footer from "../components/footer/footer";
 import { Header } from "../components/header/header";
 import { listAllPosts } from "../services/callPosts";
 import { PostLabel } from "../components/posts/postLabel";
@@ -43,6 +44,9 @@ const Home: React.FC = () => {
                 })}
             </section>
         </main>
+        <div className="w-full absolute bottom-0 flex items-center justify-center bg-zinc-900">
+            <Footer />
+        </div>
         </>
     );
 };
